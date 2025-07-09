@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,13 +50,8 @@
         }
 
         @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-
-            100% {
-                background-position: 200% 0;
-            }
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
         .nav-menu {
@@ -121,15 +115,8 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
 
         .hero-content {
@@ -177,7 +164,6 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -399,6 +385,141 @@
             font-size: 0.9rem;
         }
 
+        /* Page Sections */
+        .section-page {
+            padding: 100px 0;
+            background: #111111;
+            min-height: 100vh;
+            display: none;
+        }
+
+        .section-page.active {
+            display: block;
+        }
+
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-grid, .beauty-grid, .lifestyle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .content-card, .beauty-card, .lifestyle-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .content-card:hover, .beauty-card:hover, .lifestyle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
+        }
+
+        .content-image, .beauty-image, .lifestyle-image {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-image::after, .beauty-image::after, .lifestyle-image::after {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        .content-card h3, .beauty-card h3, .lifestyle-card h3 {
+            padding: 20px 20px 10px;
+            color: #ffffff;
+            font-size: 1.3rem;
+        }
+
+        .content-card p, .beauty-card p, .lifestyle-card p {
+            padding: 0 20px;
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more-btn {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 0 20px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Trends Section Styles */
+        .trends-container {
+            margin-top: 50px;
+        }
+
+        .trend-item {
+            display: flex;
+            align-items: center;
+            background: #1a1a1a;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .trend-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+        }
+
+        .trend-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-right: 30px;
+            min-width: 80px;
+        }
+
+        .trend-content h3 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .trend-content p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Navigation Active State */
+        .nav-link.active {
+            color: #ff6b6b;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-menu {
@@ -429,6 +550,20 @@
             .footer-links {
                 flex-direction: column;
                 gap: 20px;
+            }
+
+            .content-grid, .beauty-grid, .lifestyle-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trend-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .trend-number {
+                margin-right: 0;
+                margin-bottom: 15px;
             }
         }
 
@@ -474,17 +609,11 @@
         }
 
         @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
-
 <body>
     <!-- Loading Screen -->
     <div class="loading" id="loading">
@@ -526,8 +655,7 @@
                     <div class="article-image"></div>
                     <div class="article-content">
                         <h3 class="article-title">2024 Kış Trendleri</h3>
-                        <p class="article-excerpt">Bu kış sezonu için en çok konuşulan renk paletleri ve stil önerileri.
-                            Soğuk günlerde nasıl şık kalınır...</p>
+                        <p class="article-excerpt">Bu kış sezonu için en çok konuşulan renk paletleri ve stil önerileri. Soğuk günlerde nasıl şık kalınır...</p>
                         <div class="article-meta">
                             <span>Moda Editörü</span>
                             <span>15 Aralık 2024</span>
@@ -539,8 +667,7 @@
                     <div class="article-image"></div>
                     <div class="article-content">
                         <h3 class="article-title">Sürdürülebilir Moda</h3>
-                        <p class="article-excerpt">Çevre dostu moda markalarının yükselişi ve etik tüketim konusunda
-                            bilinmesi gerekenler...</p>
+                        <p class="article-excerpt">Çevre dostu moda markalarının yükselişi ve etik tüketim konusunda bilinmesi gerekenler...</p>
                         <div class="article-meta">
                             <span>Yaşam Editörü</span>
                             <span>12 Aralık 2024</span>
@@ -552,14 +679,139 @@
                     <div class="article-image"></div>
                     <div class="article-content">
                         <h3 class="article-title">Aksesuar Rehberi</h3>
-                        <p class="article-excerpt">Kıyafetlerinizi nasıl doğru aksesuarlarla tamamlarsınız? Uzmanlardan
-                            öneriler...</p>
+                        <p class="article-excerpt">Kıyafetlerinizi nasıl doğru aksesuarlarla tamamlarsınız? Uzmanlardan öneriler...</p>
                         <div class="article-meta">
                             <span>Stil Uzmanı</span>
                             <span>8 Aralık 2024</span>
                         </div>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fashion Section -->
+    <section class="section-page" id="fashion">
+        <div class="container">
+            <h2 class="section-title fade-in">Moda</h2>
+            <div class="page-content">
+                <div class="content-grid">
+                    <div class="content-card fade-in">
+                        <div class="content-image" style="background: linear-gradient(45deg, #ff6b6b, #ffd93d);"></div>
+                        <h3>Yaz Koleksiyonu 2024</h3>
+                        <p>Bu yaz sezonunun en çarpıcı parçaları ve kombinasyon önerileri. Renkli ve cesur tercihlerle gardırobunuzu yenileyin.</p>
+                        <button class="read-more-btn" onclick="openFullArticle('yaz-koleksiyonu')">Devamını Oku</button>
+                    </div>
+                    <div class="content-card fade-in">
+                        <div class="content-image" style="background: linear-gradient(45deg, #4ecdc4, #44a08d);"></div>
+                        <h3>Vintage Akımı</h3>
+                        <p>Geçmişten gelen trendlerin modern dokunuşlarla günümüze uyarlanması. Vintage parçaları nasıl kombinlersiniz?</p>
+                        <button class="read-more-btn" onclick="openFullArticle('vintage-akimi')">Devamını Oku</button>
+                    </div>
+                    <div class="content-card fade-in">
+                        <div class="content-image" style="background: linear-gradient(45deg, #667eea, #764ba2);"></div>
+                        <h3>Minimalist Gardırop</h3>
+                        <p>Az parça çok kombine - minimalist yaklaşımla daha şık ve pratik bir gardırop oluşturma rehberi.</p>
+                        <button class="read-more-btn" onclick="openFullArticle('minimalist-gardirop')">Devamını Oku</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beauty Section -->
+    <section class="section-page" id="beauty">
+        <div class="container">
+            <h2 class="section-title fade-in">Güzellik</h2>
+            <div class="page-content">
+                <div class="beauty-grid">
+                    <div class="beauty-card fade-in">
+                        <div class="beauty-image" style="background: linear-gradient(45deg, #ff9a9e, #fecfef);"></div>
+                        <h3>Cilt Bakım Rutini</h3>
+                        <p>Mevsime uygun cilt bakım rutinleri ve doğru ürün seçimi. Uzman tavsiyelerle sağlıklı cilt...</p>
+                        <button class="read-more-btn" onclick="openFullArticle('cilt-bakim')">Devamını Oku</button>
+                    </div>
+                    <div class="beauty-card fade-in">
+                        <div class="beauty-image" style="background: linear-gradient(45deg, #a8edea, #fed6e3);"></div>
+                        <h3>Makyaj Trendleri</h3>
+                        <p>Bu sezonun en popüler makyaj teknikleri ve renk paletleri. Adım adım uygulama rehberi...</p>
+                        <button class="read-more-btn" onclick="openFullArticle('makyaj-trendleri')">Devamını Oku</button>
+                    </div>
+                    <div class="beauty-card fade-in">
+                        <div class="beauty-image" style="background: linear-gradient(45deg, #ffecd2, #fcb69f);"></div>
+                        <h3>Saç Bakımı</h3>
+                        <p>Mevsim değişikliklerinde saç bakımı nasıl yapılır? Doğal maskeler ve beslenme önerileri...</p>
+                        <button class="read-more-btn" onclick="openFullArticle('sac-bakimi')">Devamını Oku</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trends Section -->
+    <section class="section-page" id="trends">
+        <div class="container">
+            <h2 class="section-title fade-in">Trendler</h2>
+            <div class="page-content">
+                <div class="trends-container">
+                    <div class="trend-item fade-in">
+                        <div class="trend-number">01</div>
+                        <div class="trend-content">
+                            <h3>Oversized Blazer</h3>
+                            <p>Büyük beden blazerlar bu sezonun en güçlü trendi. Hem rahat hem şık görünüm için mükemmel seçim.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item fade-in">
+                        <div class="trend-number">02</div>
+                        <div class="trend-content">
+                            <h3>Neon Renkler</h3>
+                            <p>Parlak ve cesur renkler geri dönüyor. Neon detaylarla kombinlerinize enerji katın.</p>
+                        </div>
+                    </div>
+                    <div class="trend-item fade-in">
+                        <div class="trend-number">03</div>
+                        <div class="trend-content">
+                            <h3>Sürdürülebilir Moda</h3>
+                            <p>Çevre bilinci modada da önem kazanıyor. Geri dönüştürülmüş kumaşlar ve etik üretim...</p>
+                        </div>
+                    </div>
+                    <div class="trend-item fade-in">
+                        <div class="trend-number">04</div>
+                        <div class="trend-content">
+                            <h3>Chunky Sneakers</h3>
+                            <p>Kalın tabanlı spor ayakkabılar her kombine uyum sağlıyor. Konfor ve stilin mükemmel birleşimi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Section -->
+    <section class="section-page" id="lifestyle">
+        <div class="container">
+            <h2 class="section-title fade-in">Yaşam</h2>
+            <div class="page-content">
+                <div class="lifestyle-grid">
+                    <div class="lifestyle-card fade-in">
+                        <div class="lifestyle-image" style="background: linear-gradient(45deg, #667eea, #764ba2);"></div>
+                        <h3>Moda ve Kariyer</h3>
+                        <p>İş hayatında doğru giyim kuralları ve profesyonel görünüm ipuçları. Başarılı kadınların stil sırları...</p>
+                        <button class="read-more-btn" onclick="openFullArticle('moda-kariyer')">Devamını Oku</button>
+                    </div>
+                    <div class="lifestyle-card fade-in">
+                        <div class="lifestyle-image" style="background: linear-gradient(45deg, #ffecd2, #fcb69f);"></div>
+                        <h3>Seyahat Stili</h3>
+                        <p>Seyahatte nasıl şık kalınır? Pratik ve stylish bavul hazırlama ipuçları...</p>
+                        <button class="read-more-btn" onclick="openFullArticle('seyahat-stili')">Devamını Oku</button>
+                    </div>
+                    <div class="lifestyle-card fade-in">
+                        <div class="lifestyle-image" style="background: linear-gradient(45deg, #a8edea, #fed6e3);"></div>
+                        <h3>Moda Tarihi</h3>
+                        <p>Geçmişten günümüze moda tarihinin önemli dönemleri ve ikonik tasarımcılar...</p>
+                        <button class="read-more-btn" onclick="openFullArticle('moda-tarihi')">Devamını Oku</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -598,17 +850,68 @@
 
     <script>
         // Loading Animation
-        window.addEventListener('load', function () {
+        window.addEventListener('load', function() {
             const loading = document.getElementById('loading');
             setTimeout(() => {
                 loading.classList.add('hidden');
             }, 1500);
         });
 
-        // Smooth Scrolling
+        // Smooth Scrolling and Navigation
         function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.scrollIntoView({ behavior: 'smooth' });
+            // Hide all sections
+            const sections = document.querySelectorAll('.section-page');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Show target section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // For home and featured sections
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            // Update active nav link
+            updateActiveNavLink(sectionId);
+        }
+
+        function updateActiveNavLink(activeSection) {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${activeSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Navigation click handlers
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('href').substring(1);
+                scrollToSection(sectionId);
+            });
+        });
+
+        // Show home section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide all page sections initially
+            const sections = document.querySelectorAll('.section-page');
+            sections.forEach(section => section.classList.remove('active'));
+            
+            // Set home as active
+            updateActiveNavLink('home');
+        });
+
+        // Full article opener
+        function openFullArticle(articleId) {
+            alert(`"${articleId}" tam makalesi açılıyor... Bu özellik geliştirme aşamasında.`);
         }
 
         // Scroll Animation
@@ -617,7 +920,7 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function (entries) {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
@@ -630,7 +933,7 @@
         });
 
         // Header Scroll Effect
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
                 header.style.background = 'rgba(0, 0, 0, 0.98)';
@@ -655,7 +958,7 @@
         }
 
         // Parallax Effect
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
             const hero = document.querySelector('.hero');
             hero.style.transform = `translateY(${scrolled * 0.5}px)`;
@@ -719,5 +1022,4 @@
         checkScreenSize();
     </script>
 </body>
-
 </html>
